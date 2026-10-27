@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ko" class="sg-popup-document">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>share-guard</title><link rel="stylesheet" href="popup.css"></head>
+<body class="sg-extension">
+<main class="sg-panel" aria-label="민감정보 검사 결과">
+  <header class="sg-header"><span class="sg-brand"><img class="sg-mark" src="icons/mark.svg" alt="" width="24" height="24"><img class="sg-wordmark" src="icons/wordmark.svg" alt="share-guard" width="118" height="20"></span><span class="sg-pill">자동 검사</span></header>
+  <h1 id="popup-title" class="sg-title">공유 전, 확인하세요.</h1>
+  <p id="status" class="sg-status" role="status" aria-live="polite">검사 결과를 가져오는 중입니다.</p>
+  <div class="sg-selection"><span id="selection-count" aria-live="polite">0/0개 선택</span><div><button id="select-all" class="sg-text" disabled>전체 선택</button><span aria-hidden="true">/</span><button id="deselect-all" class="sg-text" disabled>전체 해제</button></div></div>
+  <div class="sg-results" tabindex="0" aria-label="민감정보 후보 목록"><div id="list" class="sg-list"></div><p id="empty-result" class="sg-empty" hidden>현재 규칙에서 발견한 후보가 없어요.<br><span>공유 전 마지막 확인은 잊지 마세요.</span></p></div>
+  <p id="editor-note" class="sg-note"></p>
+  <div class="sg-actions"><button id="mask" class="sg-button sg-primary" disabled>선택 항목 가리기</button><button id="delete" class="sg-button sg-secondary" disabled>삭제</button></div>
+  <button id="undo" class="sg-undo" disabled><span aria-hidden="true">↶</span> 직전 수정 복원</button>
+  <footer class="sg-footer"><div><button id="refresh" class="sg-text">다시 확인</button><button id="pause" class="sg-text">이 탭 검사 끄기</button></div><p>외부 전송 없음 · 모든 개인정보를 탐지하거나 게시를 차단하지는 않습니다.</p></footer>
+</main>
+<script src="popup.js"></script>
+</body></html>

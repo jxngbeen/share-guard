@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="공유하기 전, 민감한 정보를 한 번 더 확인하세요. 브라우저 안에서 동작하는 share-guard의 감지·가리기·복원을 직접 체험해 보세요.">
+  <meta name="theme-color" content="#111214">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta property="og:title" content="share-guard — 공유하기 전에, 한 번 더 확인하세요.">
+  <meta property="og:description" content="민감정보 후보를 발견하고, 필요한 부분만 가리는 Chrome 확장 프로그램.">
+  <title>share-guard — 공유하기 전에, 한 번 더.</title>
+  <link rel="icon" href="assets/icon.svg?v=0.4.5" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-180.png?v=0.4.5">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="popup.css">
+  <script src="detector.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="motion.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#demo">체험으로 건너뛰기</a>
+  <header class="header">
+    <a class="brand" href="#top" aria-label="share-guard 처음으로"><img class="brand-mark" src="assets/mark.svg?v=0.4.5" alt="" width="28" height="28"><img class="brand-wordmark" src="assets/wordmark.svg?v=0.4.5" alt="share-guard" width="145" height="24"></a>
+    <nav aria-label="주요 메뉴"><a href="#demo">체험하기</a><a href="#how">사용 방법</a><a class="nav-install" href="#install">설치 안내 <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-icon"><img src="assets/mark.svg?v=0.4.5" alt="" width="72" height="72"></div>
+      <p class="eyebrow">SHARE WITH CARE.</p>
+      <h1 id="hero-title">공유하기 전에,<br>한 번 더 확인하세요.</h1>
+      <p class="hero-description">민감한 정보는 발견하고,<br class="mobile-break"> 필요한 부분만 가리세요.</p>
+      <div class="hero-actions"><a class="button primary" href="#demo">직접 체험하기 <span aria-hidden="true">↓</span></a><a class="button outline" href="#install">Chrome 설치 방법</a></div>
+      <p class="hero-note"><span class="status-dot" aria-hidden="true"></span> 브라우저 안에서 동작 · AI API 없이</p>
+    </section>
+
+    <section class="demo-section container" id="demo" aria-labelledby="demo-title">
+      <div class="section-heading demo-heading"><div><p class="eyebrow">TRY SHARE-GUARD</p><h2 id="demo-title">한 번 가려 보면,<br class="mobile-break"> 바로 알 수 있어요.</h2></div><p>설치 없이 눌러보는 웹 체험.<br>확장 프로그램과 같은 감지 규칙을 사용해요.</p></div>
+      <div class="demo-browser">
+        <div class="browser-top"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><span class="browser-tab"><img src="assets/mark.svg?v=0.4.5" alt="" width="16" height="16"> 새로운 글</span><span class="demo-badge">웹 체험 · 가상 예시</span></div>
+        <div class="browser-address"><span aria-hidden="true">← &nbsp; → &nbsp; ↻</span><span class="address-text">share-guard / playground</span><span class="toolbar-icon"><img src="assets/mark.svg?v=0.4.5" alt="share-guard 아이콘" width="20" height="20"><span id="toolbar-count" aria-hidden="true">2</span></span></div>
+        <div class="demo-workspace">
+          <div class="editor-panel">
+            <div class="scenario-tabs" role="group" aria-label="가상 예시 선택"><button type="button" data-scenario="everyday" aria-pressed="true">일상 글쓰기</button><button type="button" data-scenario="numbers" aria-pressed="false">민감한 번호</button><button type="button" data-scenario="developer" aria-pressed="false">개발 메모</button></div>
+            <div class="editor-heading"><span id="scenario-title">함께 나누고 싶은 소식</span><span aria-hidden="true">···</span></div>
+            <label class="sr-only" for="demo-input">체험용 글. 실제 개인정보를 입력하지 마세요.</label>
+            <textarea id="demo-input" spellcheck="false" maxlength="20000" aria-describedby="demo-privacy">이번 주말, 함께 프로젝트를 만들어 볼까요?
+
+연락처: 010-0000-0000
+이메일: demo@example.com
+
+편하게 연락 주세요.</textarea>
+            <div class="editor-bottom"><span>원하는 문장을 직접 바꿔 보세요.</span><span id="char-count">0 / 20,000</span></div>
+          </div>
+          <aside class="demo-popup sg-panel" aria-label="민감정보 검사 결과">
+            <header class="sg-header"><span class="sg-brand"><img class="sg-mark" src="assets/mark.svg?v=0.4.5" alt="" width="24" height="24"><img class="sg-wordmark" src="assets/wordmark.svg?v=0.4.5" alt="share-guard" width="118" height="20"></span><span class="sg-pill">자동 검사</span></header>
+            <h3 id="result-title" class="sg-title">공유 전, 확인하세요.</h3>
+            <p id="result-status" class="sg-status" role="status" aria-live="polite">검사 결과를 가져오는 중입니다.</p>
+            <div class="sg-selection"><span id="selection-count" aria-live="polite">0/0개 선택</span><div><button id="select-all" type="button" class="sg-text">전체 선택</button><span aria-hidden="true">/</span><button id="select-none" type="button" class="sg-text">전체 해제</button></div></div>
+            <div class="sg-results" tabindex="0" aria-label="민감정보 후보 목록"><ul id="result-list" class="sg-list"></ul><p id="empty-result" class="sg-empty" hidden>현재 규칙에서 발견한 후보가 없어요.<br><span>공유 전 마지막 확인은 잊지 마세요.</span></p></div>
+            <p class="sg-note">이 체험 글에만 반영돼요. 실제 사이트는 확장을 설치해 주세요.</p>
+            <div class="sg-actions"><button type="button" class="sg-button sg-primary" id="mask">선택 항목 가리기</button><button type="button" class="sg-button sg-secondary" id="delete">삭제</button></div>
+            <button type="button" class="sg-undo" id="undo" disabled><span aria-hidden="true">↶</span> 직전 수정 복원</button>
+            <footer class="sg-footer"><div><button type="button" class="sg-text" id="refresh-demo">다시 확인</button><button type="button" class="sg-text" id="reset-demo">예시 초기화</button></div><p>외부 전송 없음 · 모든 개인정보를 탐지하거나 게시를 차단하지는 않습니다.</p></footer>
+          </aside>
+        </div>
+      </div>
+      <div class="demo-caption"><p id="demo-privacy">실제 개인정보는 입력하지 마세요. 체험 입력은 이 브라우저 메모리에서만 처리돼요.</p></div>
+      <noscript><p class="noscript">체험에는 JavaScript가 필요합니다. 아래에서 사용 방법과 지원 범위를 확인할 수 있어요.</p></noscript>
+    </section>
+
+    <section class="how-section container" id="how" aria-labelledby="how-title">
+      <div class="section-heading"><p class="eyebrow">A SMALL PAUSE. A BETTER SHARE.</p><h2 id="how-title">쓰던 흐름은 그대로.<br>공유할 정보만 신중하게.</h2></div>
+      <div class="steps"><article><span class="step-number">01</span><h3>평소처럼 작성하세요.</h3><p>지원하는 입력창에서 글을 쓰세요. 입력을 1초 멈추면 민감정보 후보를 확인해요.</p></article><article><span class="step-number">02</span><h3>발견한 위치를 확인하세요.</h3><p>Chrome 확장 팝업에서 유형과 행·글자 위치를 살펴보세요. 주변 문장 속 후보 값도 가려 표시해요.</p></article><article><span class="step-number">03</span><h3>필요한 것만 가리세요.</h3><p>항목을 선택해 가리거나 삭제하세요. 지원하는 입력창에서 직전 수정도 복원할 수 있어요.</p></article></div>
+    </section>
+
+    <section class="privacy-section" aria-labelledby="privacy-title"><div class="container privacy-layout"><div><p class="eyebrow">LOCAL BY DESIGN</p><h2 id="privacy-title">내가 쓴 글은,<br>내 브라우저 안에.</h2><p class="section-description">입력 내용을 외부 AI에 보내지 않아요.<br>정해진 패턴으로, 브라우저 안에서 확인해요.</p></div><div class="privacy-facts"><div><span aria-hidden="true">↗</span><h3>원문 외부 전송 없음</h3><p>확장 프로그램은 검사할 글을 외부 서버에 보내지 않아요.</p></div><div><span aria-hidden="true">◌</span><h3>원문 영구 저장 없음</h3><p>검사와 직전 복원에 필요한 내용은 일시적으로 메모리에서 다뤄요.</p></div><div><span aria-hidden="true">◎</span><h3>수정은 내가 선택한 뒤</h3><p>발견한 후보를 확인하고, 직접 버튼을 눌러 수정해요.</p></div></div></div></section>
+
+    <section class="scope-section container" aria-labelledby="scope-title"><div class="section-heading"><p class="eyebrow">KNOW THE BOUNDARIES</p><h2 id="scope-title">어디까지 도와줄까요?</h2><p>가능한 일과 한계를 함께 알려드려요.</p></div>
+      <div class="detected-types" aria-label="감지하는 7가지 유형"><span>전화번호</span><span>이메일</span><span>주민번호 형태</span><span>계좌번호 후보</span><span>카드번호 후보</span><span>여권번호 후보</span><span>API 키·토큰</span></div>
+      <div class="support-table-wrap"><table class="support-table"><caption class="sr-only">입력 영역별 지원 범위</caption><thead><tr><th scope="col">사용하는 곳</th><th scope="col">감지</th><th scope="col">가리기·삭제·복원</th></tr></thead><tbody><tr><th scope="row">일반 텍스트 입력창</th><td>지원</td><td>지원</td></tr><tr><th scope="row">네이버 PC 블로그 본문 <small>글쓰기 화면 전용 연동</small></th><td>지원</td><td>지원</td></tr><tr><th scope="row">일반 서식 편집기 <small>contenteditable</small></th><td>지원</td><td class="muted">감지만 지원</td></tr><tr><th scope="row">이미지·첨부 파일</th><td class="muted">미지원</td><td class="muted">미지원</td></tr></tbody></table></div>
+      <p class="scope-note">계좌·여권번호는 주변 표기를 함께 확인하고, 카드번호는 체크섬 규칙을 사용해요. 실제 발급 여부나 키의 유효성은 확인하지 않아요. 20,000자를 넘는 글, 이름·주소의 의미 분석, 비밀번호 입력창은 검사하지 않아요.</p>
+      <div class="boundary-note"><span aria-hidden="true">!</span><p><strong>발견한 후보가 없어도, 안전을 보장하지는 않아요.</strong>모든 민감정보를 찾거나 게시·전송·원래 사이트의 자동 저장을 차단하는 도구는 아니에요.</p></div>
+    </section>
+
+    <section class="install-section container" id="install" aria-labelledby="install-title"><p class="eyebrow">MAKE IT PART OF YOUR BROWSER</p><h2 id="install-title">공유 전 확인,<br>이제 브라우저에서도.</h2><p class="section-description">Chrome 127 이상 · 무료 · 개발자 모드로 설치</p><a class="button primary download" href="https://github.com/jxngbeen/share-guard/releases/download/v0.4.5/share-guard-v0.4.5.zip">확장 프로그램 다운로드 <span aria-hidden="true">↓</span></a><p class="release-note">v0.4.5 · GitHub Release ZIP · 웹 스토어 등록 전</p>
+      <ol class="install-steps"><li><span>1</span><div><h3>다운로드한 ZIP의 압축을 풀어요.</h3><p>압축을 푼 폴더는 설치 후에도 같은 위치에 보관해 주세요.</p></div></li><li><span>2</span><div><h3>Chrome 확장 관리 화면을 열어요.</h3><p>주소창에 <code>chrome://extensions</code>를 입력하고, 오른쪽 위의 <strong>개발자 모드</strong>를 켜세요.</p><button type="button" class="text-button" id="copy-address">관리 화면 주소 복사 <span aria-hidden="true">↗</span></button><span id="copy-status" class="copy-status" role="status"></span></div></li><li><span>3</span><div><h3>압축해제된 확장 프로그램을 로드해요.</h3><p>해당 버튼을 누르고 압축을 푼 폴더를 선택하세요. 도구 모음에 아이콘을 고정하고 검사할 사이트의 접근을 허용하면 준비 끝.</p></div></li></ol><p class="update-note">이미 설치했다면 기존 폴더를 새 파일로 업데이트하고 확장 관리 화면에서 새로고침하세요. 작성 중인 글을 보존한 뒤 글쓰기 페이지도 새로고침해 주세요.</p>
+    </section>
+
+    <section class="faq-section container" aria-labelledby="faq-title"><h2 id="faq-title">궁금한 점이 있나요?</h2><div class="faq-list"><details><summary>웹 체험과 실제 확장은 무엇이 다른가요?</summary><p>웹 체험은 이 페이지의 연습용 글만 검사하고 수정해요. 같은 감지 규칙을 사용하지만 실제 확장은 지원하는 사이트의 입력창에서 자동으로 검사하고 Chrome 기본 팝업을 열어요. 사이트마다 감지·수정 지원 범위가 다를 수 있어요.</p></details><details><summary>내 글을 AI가 읽나요?</summary><p>제품 실행에는 AI API를 사용하지 않아요. 글은 브라우저 안에서 규칙으로 검사해요. AI 코딩 도구를 활용해 개발한 프로젝트이며, 개발 도구와 제품의 실행 방식은 별개예요.</p></details><details><summary>왜 사이트 접근 권한이 필요한가요?</summary><p>글을 쓰는 입력창을 읽고 선택한 부분을 수정하려면 사이트 접근이 필요해요. Chrome 설정에서 허용 범위를 제한할 수 있지만, 클릭할 때만 접근하도록 설정하면 상시 검사가 동작하지 않아요. Chrome 내부 화면과 웹 스토어 같은 제한 페이지에서는 작동하지 않아요.</p></details><details><summary>후보가 잘못 감지되거나 빠질 수도 있나요?</summary><p>네. 정해진 형식과 주변 표기를 사용하는 규칙 기반 도구라 오탐과 누락이 있을 수 있어요. 발견한 내용을 확인하고 필요한 항목만 선택해 주세요. 계좌번호 앞의 ‘계좌’ 같은 표기는 판단에 영향을 줘요.</p></details><details><summary>언제든 수정 내용을 되돌릴 수 있나요?</summary><p>직전 수정에 한해 지원해요. 페이지를 새로고침하거나 검사를 끄면 복원 정보가 사라져요. 수정 대상의 글이나 서식이 달라지면 새 내용을 덮어쓰지 않도록 복원을 거절할 수 있어요. 네이버 내부 편집기 변경으로 호환성이 달라질 수도 있어요.</p></details><details><summary>이미 공유했거나 자동 저장된 내용도 보호하나요?</summary><p>게시·전송·자동 저장을 막거나 이미 공유한 내용을 회수하지 않아요. 공유하기 전에 스스로 확인하는 데 도움을 주는 도구예요.</p></details></div></section>
+  </main>
+  <footer class="footer" id="footer">
+    <nav class="footer-social" aria-label="프로젝트 링크">
+      <a href="https://github.com/jxngbeen/share-guard" target="_blank" rel="noopener noreferrer" aria-label="GitHub 저장소" title="GitHub">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.1c-3.14.68-3.8-1.33-3.8-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.02 1.74 2.67 1.24 3.32.95.1-.74.4-1.24.72-1.53-2.5-.28-5.13-1.25-5.13-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.8 10.8 0 0 1 5.64 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.04.76 2.1v3.09c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75Z"/></svg>
+      </a>
+    </nav>
+    <nav class="footer-policies" aria-label="정책 안내"><a href="terms.html">이용약관</a><a href="privacy.html">개인정보 처리방침</a></nav>
+  </footer>
+</body>
+</html>

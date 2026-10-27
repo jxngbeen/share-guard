@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "share-guard",
+  "version": "0.4.5",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "minimum_chrome_version": "127",
+  "description": "글 입력을 자동 검사하고 민감정보 후보를 발견하면 확장 팝업으로 알려줍니다. 외부 AI와 서버를 사용하지 않습니다.",
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "detector.js",
+        "editors.js",
+        "content.js"
+      ],
+      "all_frames": true,
+      "match_about_blank": true,
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "share-guard · 자동 검사"
+  },
+  "host_permissions": [
+    "https://blog.naver.com/*"
+  ]
+}

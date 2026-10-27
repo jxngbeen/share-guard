@@ -1,0 +1,1094 @@
+[
+  {
+    "id": "phone-positive-1",
+    "type": "phone",
+    "text": "예시 010-0000-0000 / 끝",
+    "expected": [
+      {
+        "type": "phone",
+        "start": 3,
+        "end": 16
+      }
+    ]
+  },
+  {
+    "id": "phone-positive-2",
+    "type": "phone",
+    "text": "예시 010 0000 0000 / 끝",
+    "expected": [
+      {
+        "type": "phone",
+        "start": 3,
+        "end": 16
+      }
+    ]
+  },
+  {
+    "id": "phone-positive-3",
+    "type": "phone",
+    "text": "예시 010.0000.0000 / 끝",
+    "expected": [
+      {
+        "type": "phone",
+        "start": 3,
+        "end": 16
+      }
+    ]
+  },
+  {
+    "id": "phone-positive-4",
+    "type": "phone",
+    "text": "예시 01000000000 / 끝",
+    "expected": [
+      {
+        "type": "phone",
+        "start": 3,
+        "end": 14
+      }
+    ]
+  },
+  {
+    "id": "phone-positive-5",
+    "type": "phone",
+    "text": "예시 02-000-0000 / 끝",
+    "expected": [
+      {
+        "type": "phone",
+        "start": 3,
+        "end": 14
+      }
+    ]
+  },
+  {
+    "id": "phone-positive-6",
+    "type": "phone",
+    "text": "예시 031-000-0000 / 끝",
+    "expected": [
+      {
+        "type": "phone",
+        "start": 3,
+        "end": 15
+      }
+    ]
+  },
+  {
+    "id": "phone-positive-7",
+    "type": "phone",
+    "text": "예시 070-0000-0000 / 끝",
+    "expected": [
+      {
+        "type": "phone",
+        "start": 3,
+        "end": 16
+      }
+    ]
+  },
+  {
+    "id": "phone-positive-8",
+    "type": "phone",
+    "text": "예시 +82 10 0000 0000 / 끝",
+    "expected": [
+      {
+        "type": "phone",
+        "start": 3,
+        "end": 19
+      }
+    ]
+  },
+  {
+    "id": "phone-positive-9",
+    "type": "phone",
+    "text": "예시 ０１０－００００－００００ / 끝",
+    "expected": [
+      {
+        "type": "phone",
+        "start": 3,
+        "end": 16
+      }
+    ]
+  },
+  {
+    "id": "phone-positive-10",
+    "type": "phone",
+    "text": "예시 010​-0000-0000 / 끝",
+    "expected": [
+      {
+        "type": "phone",
+        "start": 3,
+        "end": 17
+      }
+    ]
+  },
+  {
+    "id": "email-positive-1",
+    "type": "email",
+    "text": "예시 student@example.com / 끝",
+    "expected": [
+      {
+        "type": "email",
+        "start": 3,
+        "end": 22
+      }
+    ]
+  },
+  {
+    "id": "email-positive-2",
+    "type": "email",
+    "text": "예시 a.b@example.com / 끝",
+    "expected": [
+      {
+        "type": "email",
+        "start": 3,
+        "end": 18
+      }
+    ]
+  },
+  {
+    "id": "email-positive-3",
+    "type": "email",
+    "text": "예시 study+demo@example.com / 끝",
+    "expected": [
+      {
+        "type": "email",
+        "start": 3,
+        "end": 25
+      }
+    ]
+  },
+  {
+    "id": "email-positive-4",
+    "type": "email",
+    "text": "예시 a_b@example.com / 끝",
+    "expected": [
+      {
+        "type": "email",
+        "start": 3,
+        "end": 18
+      }
+    ]
+  },
+  {
+    "id": "email-positive-5",
+    "type": "email",
+    "text": "예시 a-b@example.com / 끝",
+    "expected": [
+      {
+        "type": "email",
+        "start": 3,
+        "end": 18
+      }
+    ]
+  },
+  {
+    "id": "email-positive-6",
+    "type": "email",
+    "text": "예시 user@example.co.kr / 끝",
+    "expected": [
+      {
+        "type": "email",
+        "start": 3,
+        "end": 21
+      }
+    ]
+  },
+  {
+    "id": "email-positive-7",
+    "type": "email",
+    "text": "예시 a%test@example.com / 끝",
+    "expected": [
+      {
+        "type": "email",
+        "start": 3,
+        "end": 21
+      }
+    ]
+  },
+  {
+    "id": "email-positive-8",
+    "type": "email",
+    "text": "예시 USER@EXAMPLE.COM / 끝",
+    "expected": [
+      {
+        "type": "email",
+        "start": 3,
+        "end": 19
+      }
+    ]
+  },
+  {
+    "id": "email-positive-9",
+    "type": "email",
+    "text": "예시 ａ＠ｅｘａｍｐｌｅ．ｃｏｍ / 끝",
+    "expected": [
+      {
+        "type": "email",
+        "start": 3,
+        "end": 16
+      }
+    ]
+  },
+  {
+    "id": "email-positive-10",
+    "type": "email",
+    "text": "예시 a​@example.com / 끝",
+    "expected": [
+      {
+        "type": "email",
+        "start": 3,
+        "end": 17
+      }
+    ]
+  },
+  {
+    "id": "resident-positive-1",
+    "type": "resident",
+    "text": "예시 000000 0000000 / 끝",
+    "expected": [
+      {
+        "type": "resident",
+        "start": 3,
+        "end": 17
+      }
+    ]
+  },
+  {
+    "id": "resident-positive-2",
+    "type": "resident",
+    "text": "예시 000000-0000000 / 끝",
+    "expected": [
+      {
+        "type": "resident",
+        "start": 3,
+        "end": 17
+      }
+    ]
+  },
+  {
+    "id": "resident-positive-3",
+    "type": "resident",
+    "text": "예시 900101 - 1234567 / 끝",
+    "expected": [
+      {
+        "type": "resident",
+        "start": 3,
+        "end": 19
+      }
+    ]
+  },
+  {
+    "id": "resident-positive-4",
+    "type": "resident",
+    "text": "예시 900101\t1234567 / 끝",
+    "expected": [
+      {
+        "type": "resident",
+        "start": 3,
+        "end": 17
+      }
+    ]
+  },
+  {
+    "id": "resident-positive-5",
+    "type": "resident",
+    "text": "예시 900101–1234567 / 끝",
+    "expected": [
+      {
+        "type": "resident",
+        "start": 3,
+        "end": 17
+      }
+    ]
+  },
+  {
+    "id": "resident-positive-6",
+    "type": "resident",
+    "text": "예시 ９００１０１－１２３４５６７ / 끝",
+    "expected": [
+      {
+        "type": "resident",
+        "start": 3,
+        "end": 17
+      }
+    ]
+  },
+  {
+    "id": "resident-positive-7",
+    "type": "resident",
+    "text": "예시 900101-1****** / 끝",
+    "expected": [
+      {
+        "type": "resident",
+        "start": 3,
+        "end": 17
+      }
+    ]
+  },
+  {
+    "id": "resident-positive-8",
+    "type": "resident",
+    "text": "예시 900101 1234567 / 끝",
+    "expected": [
+      {
+        "type": "resident",
+        "start": 3,
+        "end": 17
+      }
+    ]
+  },
+  {
+    "id": "resident-positive-9",
+    "type": "resident",
+    "text": "예시 주민번호: 0000000000000 / 끝",
+    "expected": [
+      {
+        "type": "resident",
+        "start": 9,
+        "end": 22
+      }
+    ]
+  },
+  {
+    "id": "resident-positive-10",
+    "type": "resident",
+    "text": "예시 9001011​234567 / 끝",
+    "expected": [
+      {
+        "type": "resident",
+        "start": 3,
+        "end": 17
+      }
+    ]
+  },
+  {
+    "id": "account-positive-1",
+    "type": "account",
+    "text": "예시 계좌번호: 123-456-789012 / 끝",
+    "expected": [
+      {
+        "type": "account",
+        "start": 9,
+        "end": 23
+      }
+    ]
+  },
+  {
+    "id": "account-positive-2",
+    "type": "account",
+    "text": "예시 계좌 123456789012 / 끝",
+    "expected": [
+      {
+        "type": "account",
+        "start": 6,
+        "end": 18
+      }
+    ]
+  },
+  {
+    "id": "account-positive-3",
+    "type": "account",
+    "text": "예시 account number: 123456789012 / 끝",
+    "expected": [
+      {
+        "type": "account",
+        "start": 19,
+        "end": 31
+      }
+    ]
+  },
+  {
+    "id": "account-positive-4",
+    "type": "account",
+    "text": "예시 계좌번호=０００－０００－００００００ / 끝",
+    "expected": [
+      {
+        "type": "account",
+        "start": 8,
+        "end": 22
+      }
+    ]
+  },
+  {
+    "id": "account-positive-5",
+    "type": "account",
+    "text": "예시 계좌번호 : 1234 5678 9012 / 끝",
+    "expected": [
+      {
+        "type": "account",
+        "start": 10,
+        "end": 24
+      }
+    ]
+  },
+  {
+    "id": "account-positive-6",
+    "type": "account",
+    "text": "예시 계좌번호: 1234567890 / 끝",
+    "expected": [
+      {
+        "type": "account",
+        "start": 9,
+        "end": 19
+      }
+    ]
+  },
+  {
+    "id": "account-positive-7",
+    "type": "account",
+    "text": "예시 계좌번호: 1234567890123456 / 끝",
+    "expected": [
+      {
+        "type": "account",
+        "start": 9,
+        "end": 25
+      }
+    ]
+  },
+  {
+    "id": "account-positive-8",
+    "type": "account",
+    "text": "예시 account no. 123456789012 / 끝",
+    "expected": [
+      {
+        "type": "account",
+        "start": 15,
+        "end": 27
+      }
+    ]
+  },
+  {
+    "id": "account-positive-9",
+    "type": "account",
+    "text": "예시 계좌번호: 000–000–000000 / 끝",
+    "expected": [
+      {
+        "type": "account",
+        "start": 9,
+        "end": 23
+      }
+    ]
+  },
+  {
+    "id": "account-positive-10",
+    "type": "account",
+    "text": "예시 계좌번호: 123​456789012 / 끝",
+    "expected": [
+      {
+        "type": "account",
+        "start": 9,
+        "end": 22
+      }
+    ]
+  },
+  {
+    "id": "card-positive-1",
+    "type": "card",
+    "text": "예시 4242424242424242 / 끝",
+    "expected": [
+      {
+        "type": "card",
+        "start": 3,
+        "end": 19
+      }
+    ]
+  },
+  {
+    "id": "card-positive-2",
+    "type": "card",
+    "text": "예시 4242 4242 4242 4242 / 끝",
+    "expected": [
+      {
+        "type": "card",
+        "start": 3,
+        "end": 22
+      }
+    ]
+  },
+  {
+    "id": "card-positive-3",
+    "type": "card",
+    "text": "예시 4242-4242-4242-4242 / 끝",
+    "expected": [
+      {
+        "type": "card",
+        "start": 3,
+        "end": 22
+      }
+    ]
+  },
+  {
+    "id": "card-positive-4",
+    "type": "card",
+    "text": "예시 ４２４２４２４２４２４２４２４２ / 끝",
+    "expected": [
+      {
+        "type": "card",
+        "start": 3,
+        "end": 19
+      }
+    ]
+  },
+  {
+    "id": "card-positive-5",
+    "type": "card",
+    "text": "예시 5555555555554444 / 끝",
+    "expected": [
+      {
+        "type": "card",
+        "start": 3,
+        "end": 19
+      }
+    ]
+  },
+  {
+    "id": "card-positive-6",
+    "type": "card",
+    "text": "예시 5555-5555-5555-4444 / 끝",
+    "expected": [
+      {
+        "type": "card",
+        "start": 3,
+        "end": 22
+      }
+    ]
+  },
+  {
+    "id": "card-positive-7",
+    "type": "card",
+    "text": "예시 378282246310005 / 끝",
+    "expected": [
+      {
+        "type": "card",
+        "start": 3,
+        "end": 18
+      }
+    ]
+  },
+  {
+    "id": "card-positive-8",
+    "type": "card",
+    "text": "예시 3782 822463 10005 / 끝",
+    "expected": [
+      {
+        "type": "card",
+        "start": 3,
+        "end": 20
+      }
+    ]
+  },
+  {
+    "id": "card-positive-9",
+    "type": "card",
+    "text": "예시 4000000000000002 / 끝",
+    "expected": [
+      {
+        "type": "card",
+        "start": 3,
+        "end": 19
+      }
+    ]
+  },
+  {
+    "id": "card-positive-10",
+    "type": "card",
+    "text": "예시 4242​424242424242 / 끝",
+    "expected": [
+      {
+        "type": "card",
+        "start": 3,
+        "end": 20
+      }
+    ]
+  },
+  {
+    "id": "passport-positive-1",
+    "type": "passport",
+    "text": "예시 여권번호: M123A4567 / 끝",
+    "expected": [
+      {
+        "type": "passport",
+        "start": 9,
+        "end": 18
+      }
+    ]
+  },
+  {
+    "id": "passport-positive-2",
+    "type": "passport",
+    "text": "예시 여권번호 M12345678 / 끝",
+    "expected": [
+      {
+        "type": "passport",
+        "start": 8,
+        "end": 17
+      }
+    ]
+  },
+  {
+    "id": "passport-positive-3",
+    "type": "passport",
+    "text": "예시 여권: M123A4567 / 끝",
+    "expected": [
+      {
+        "type": "passport",
+        "start": 7,
+        "end": 16
+      }
+    ]
+  },
+  {
+    "id": "passport-positive-4",
+    "type": "passport",
+    "text": "예시 passport number: M123A4567 / 끝",
+    "expected": [
+      {
+        "type": "passport",
+        "start": 20,
+        "end": 29
+      }
+    ]
+  },
+  {
+    "id": "passport-positive-5",
+    "type": "passport",
+    "text": "예시 passport no. M12345678 / 끝",
+    "expected": [
+      {
+        "type": "passport",
+        "start": 16,
+        "end": 25
+      }
+    ]
+  },
+  {
+    "id": "passport-positive-6",
+    "type": "passport",
+    "text": "예시 여권번호 = M123A4567 / 끝",
+    "expected": [
+      {
+        "type": "passport",
+        "start": 10,
+        "end": 19
+      }
+    ]
+  },
+  {
+    "id": "passport-positive-7",
+    "type": "passport",
+    "text": "예시 여권번호: Ｍ１２３Ａ４５６７ / 끝",
+    "expected": [
+      {
+        "type": "passport",
+        "start": 9,
+        "end": 18
+      }
+    ]
+  },
+  {
+    "id": "passport-positive-8",
+    "type": "passport",
+    "text": "예시 여권번호:\tM123A4567 / 끝",
+    "expected": [
+      {
+        "type": "passport",
+        "start": 9,
+        "end": 18
+      }
+    ]
+  },
+  {
+    "id": "passport-positive-9",
+    "type": "passport",
+    "text": "예시 여권번호: M123​A4567 / 끝",
+    "expected": [
+      {
+        "type": "passport",
+        "start": 9,
+        "end": 19
+      }
+    ]
+  },
+  {
+    "id": "passport-positive-10",
+    "type": "passport",
+    "text": "예시 passport: m123a4567 / 끝",
+    "expected": [
+      {
+        "type": "passport",
+        "start": 13,
+        "end": 22
+      }
+    ]
+  },
+  {
+    "id": "secret-positive-1",
+    "type": "secret",
+    "text": "예시 API_KEY=dummy_key_for_local_test / 끝",
+    "expected": [
+      {
+        "type": "secret",
+        "start": 11,
+        "end": 35
+      }
+    ]
+  },
+  {
+    "id": "secret-positive-2",
+    "type": "secret",
+    "text": "예시 ACCESS_TOKEN=fixture_access_token / 끝",
+    "expected": [
+      {
+        "type": "secret",
+        "start": 16,
+        "end": 36
+      }
+    ]
+  },
+  {
+    "id": "secret-positive-3",
+    "type": "secret",
+    "text": "예시 \"api_key\": \"dummy_key_for_local_test\" / 끝",
+    "expected": [
+      {
+        "type": "secret",
+        "start": 15,
+        "end": 39
+      }
+    ]
+  },
+  {
+    "id": "secret-positive-4",
+    "type": "secret",
+    "text": "예시 AWS_SECRET_ACCESS_KEY=fixture_secret_123456 / 끝",
+    "expected": [
+      {
+        "type": "secret",
+        "start": 25,
+        "end": 46
+      }
+    ]
+  },
+  {
+    "id": "secret-positive-5",
+    "type": "secret",
+    "text": "예시 Authorization: Bearer fixture_token_123456789 / 끝",
+    "expected": [
+      {
+        "type": "secret",
+        "start": 25,
+        "end": 48
+      }
+    ]
+  },
+  {
+    "id": "secret-positive-6",
+    "type": "secret",
+    "text": "예시 sk-proj-aaaaaaaaaaaaaaaaaaaaaaaa / 끝",
+    "expected": [
+      {
+        "type": "secret",
+        "start": 3,
+        "end": 35
+      }
+    ]
+  },
+  {
+    "id": "secret-positive-7",
+    "type": "secret",
+    "text": "예시 ghp_bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb / 끝",
+    "expected": [
+      {
+        "type": "secret",
+        "start": 3,
+        "end": 43
+      }
+    ]
+  },
+  {
+    "id": "secret-positive-8",
+    "type": "secret",
+    "text": "예시 AKIAAAAAAAAAAAAAAAAA / 끝",
+    "expected": [
+      {
+        "type": "secret",
+        "start": 3,
+        "end": 23
+      }
+    ]
+  },
+  {
+    "id": "secret-positive-9",
+    "type": "secret",
+    "text": "예시 AIzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa / 끝",
+    "expected": [
+      {
+        "type": "secret",
+        "start": 3,
+        "end": 42
+      }
+    ]
+  },
+  {
+    "id": "secret-positive-10",
+    "type": "secret",
+    "text": "예시 eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0In0.ZmFrZXNpZ25hdHVyZQ / 끝",
+    "expected": [
+      {
+        "type": "secret",
+        "start": 3,
+        "end": 62
+      }
+    ]
+  },
+  {
+    "id": "phone-negative-1",
+    "type": "phone",
+    "text": "010-00-0000",
+    "expected": []
+  },
+  {
+    "id": "phone-negative-2",
+    "type": "phone",
+    "text": "010000000000",
+    "expected": []
+  },
+  {
+    "id": "phone-negative-3",
+    "type": "phone",
+    "text": "001000000000",
+    "expected": []
+  },
+  {
+    "id": "phone-negative-4",
+    "type": "phone",
+    "text": "010-0000-00000",
+    "expected": []
+  },
+  {
+    "id": "phone-negative-5",
+    "type": "phone",
+    "text": "010-0000",
+    "expected": []
+  },
+  {
+    "id": "phone-negative-6",
+    "type": "phone",
+    "text": "2010-10-10",
+    "expected": []
+  },
+  {
+    "id": "email-negative-1",
+    "type": "email",
+    "text": "a..b@example.com",
+    "expected": []
+  },
+  {
+    "id": "email-negative-2",
+    "type": "email",
+    "text": "a.@example.com",
+    "expected": []
+  },
+  {
+    "id": "email-negative-3",
+    "type": "email",
+    "text": "a@example",
+    "expected": []
+  },
+  {
+    "id": "email-negative-4",
+    "type": "email",
+    "text": "a@-example.com",
+    "expected": []
+  },
+  {
+    "id": "email-negative-5",
+    "type": "email",
+    "text": "a@example..com",
+    "expected": []
+  },
+  {
+    "id": "email-negative-6",
+    "type": "email",
+    "text": "a@@example.com",
+    "expected": []
+  },
+  {
+    "id": "resident-negative-1",
+    "type": "resident",
+    "text": "000000 000000",
+    "expected": []
+  },
+  {
+    "id": "resident-negative-2",
+    "type": "resident",
+    "text": "000000 00000000",
+    "expected": []
+  },
+  {
+    "id": "resident-negative-3",
+    "type": "resident",
+    "text": "00000-0000000",
+    "expected": []
+  },
+  {
+    "id": "resident-negative-4",
+    "type": "resident",
+    "text": "0000000-0000000",
+    "expected": []
+  },
+  {
+    "id": "resident-negative-5",
+    "type": "resident",
+    "text": "0000000000000",
+    "expected": []
+  },
+  {
+    "id": "resident-negative-6",
+    "type": "resident",
+    "text": "2026-10-31",
+    "expected": []
+  },
+  {
+    "id": "account-negative-1",
+    "type": "account",
+    "text": "계좌번호: 123456789",
+    "expected": []
+  },
+  {
+    "id": "account-negative-2",
+    "type": "account",
+    "text": "계좌번호: 12345678901234567",
+    "expected": []
+  },
+  {
+    "id": "account-negative-3",
+    "type": "account",
+    "text": "주문번호: 123-456-789012",
+    "expected": []
+  },
+  {
+    "id": "account-negative-4",
+    "type": "account",
+    "text": "myaccount123456789012",
+    "expected": []
+  },
+  {
+    "id": "account-negative-5",
+    "type": "account",
+    "text": "accounting 123456789012",
+    "expected": []
+  },
+  {
+    "id": "account-negative-6",
+    "type": "account",
+    "text": "계좌번호: [계좌번호 후보 가림]",
+    "expected": []
+  },
+  {
+    "id": "card-negative-1",
+    "type": "card",
+    "text": "4242 4242 4242 4241",
+    "expected": []
+  },
+  {
+    "id": "card-negative-2",
+    "type": "card",
+    "text": "424242424242",
+    "expected": []
+  },
+  {
+    "id": "card-negative-3",
+    "type": "card",
+    "text": "7777777777777777",
+    "expected": []
+  },
+  {
+    "id": "card-negative-4",
+    "type": "card",
+    "text": "0000000000000000",
+    "expected": []
+  },
+  {
+    "id": "card-negative-5",
+    "type": "card",
+    "text": "42424242424242421234",
+    "expected": []
+  },
+  {
+    "id": "card-negative-6",
+    "type": "card",
+    "text": "2026 1025 0000 0000",
+    "expected": []
+  },
+  {
+    "id": "passport-negative-1",
+    "type": "passport",
+    "text": "여권번호: M1234567",
+    "expected": []
+  },
+  {
+    "id": "passport-negative-2",
+    "type": "passport",
+    "text": "여권번호: M123456789",
+    "expected": []
+  },
+  {
+    "id": "passport-negative-3",
+    "type": "passport",
+    "text": "여권번호: ABCDEFGHI",
+    "expected": []
+  },
+  {
+    "id": "passport-negative-4",
+    "type": "passport",
+    "text": "boarding M12345678",
+    "expected": []
+  },
+  {
+    "id": "passport-negative-5",
+    "type": "passport",
+    "text": "bypassportM12345678",
+    "expected": []
+  },
+  {
+    "id": "passport-negative-6",
+    "type": "passport",
+    "text": "여권번호: [여권번호 후보 가림]",
+    "expected": []
+  },
+  {
+    "id": "secret-negative-1",
+    "type": "secret",
+    "text": "API_KEY=short",
+    "expected": []
+  },
+  {
+    "id": "secret-negative-2",
+    "type": "secret",
+    "text": "sk-short",
+    "expected": []
+  },
+  {
+    "id": "secret-negative-3",
+    "type": "secret",
+    "text": "AKIAAAAAAAAAAAAAAAA",
+    "expected": []
+  },
+  {
+    "id": "secret-negative-4",
+    "type": "secret",
+    "text": "AIzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "expected": []
+  },
+  {
+    "id": "secret-negative-5",
+    "type": "secret",
+    "text": "API_KEY=[API 키·토큰 가림]",
+    "expected": []
+  },
+  {
+    "id": "secret-negative-6",
+    "type": "secret",
+    "text": "access_token 설명 문장",
+    "expected": []
+  }
+]

@@ -1,0 +1,48 @@
+// Run against the local demo with the extension loaded. Synthetic data only.
+async(page)=>{
+ const base=new URL(page.url()).origin,ctx=page.context(),w=ctx.serviceWorkers()[0];
+ if(!['127.0.0.1','localhost'].includes(new URL(base).hostname))throw new Error('Open the local demo first');
+ const checks=[],ok=(v,name)=>{if(!v)throw Error(name);checks.push(name);};
+ const send=cmd=>w.evaluate(cmd=>route({type:'SG_POPUP',command:cmd},{url:chrome.runtime.getURL('popup.html')}),cmd);
+ const get=()=>send({action:'get'}),settle=()=>page.waitForTimeout(1200);
+ const cmd=(action,state,extra={})=>send({action,version:state.version,documentId:state.documentId,...extra});
+ await w.evaluate(()=>{globalThis.__realOpen ||= chrome.action.openPopup.bind(chrome.action);chrome.action.openPopup=async()=>{};});
+ await page.goto(base+'/qa.html');
+ const field=page.locator('#body'),sample='a@example.com; 계좌번호: 123-456-789012; API_KEY=dummy_key_for_local_test';
+ await field.fill(sample);await settle();let state=(await get()).state;
+ ok(state.matches.length===3,'선택 유지 검사 기준선 3개');
+ await cmd('selection',state,{indices:[1],revision:state.selectionRevision+1});state=(await get()).state;
+ ok(JSON.stringify(state.selectedIndices)==='[1]','한 항목 선택을 문서 메모리에 유지');
+ ok(JSON.stringify((await get()).state.selectedIndices)==='[1]','반복 조회 후 선택 유지');
+ const rev=state.selectionRevision;
+ await cmd('selection',state,{indices:[2],revision:rev+2});await cmd('selection',state,{indices:[0],revision:rev+1});
+ ok(JSON.stringify((await get()).state.selectedIndices)==='[2]','늦게 도착한 이전 선택이 최신 선택을 덮지 않음');
+ await cmd('selection',state,{indices:[],revision:rev+3});ok((await get()).state.selectedIndices.length===0,'전체 해제도 유지');
+ const stale=state;await field.fill(sample+' 변경');await settle();state=(await get()).state;
+ ok(state.selectedIndices.length===3,'본문 변경 시 선택 초기화');
+ ok(!(await cmd('selection',stale,{indices:[1],revision:999})).ok,'오래된 본문 버전의 선택 저장 거절');
+ await cmd('selection',state,{indices:[1],revision:state.selectionRevision+1});
+ await page.locator('#plain').fill(sample);await settle();state=(await get()).state;
+ ok(state.selectedIndices.length===3,'입력 대상 변경 시 선택 초기화');
+ await cmd('pause',state,{paused:true});state=(await get()).state;
+ ok(state.paused&&state.text===''&&state.matches.length===0,'탭 정지 시 원문과 후보 해제');
+ await page.frameLocator('iframe').getByRole('textbox',{name:'프레임 게시글'}).fill('frame@example.com');await settle();state=(await get()).state;
+ ok(state.paused&&state.matches.length===0,'기존 iframe에도 탭 정지 적용');
+ await page.evaluate(()=>{const f=document.createElement('iframe');f.id='late-frame';f.src='frame.html';document.body.append(f);});
+ await page.frameLocator('#late-frame').getByRole('textbox',{name:'프레임 게시글'}).fill('late@example.com');await settle();state=(await get()).state;
+ ok(state.paused&&state.matches.length===0,'나중에 추가된 iframe도 정지 상태로 시작');
+ ok(!(await cmd('apply',state,{indices:[0],mode:'delete'})).ok,'정지한 탭의 수정 요청 차단');
+ await page.reload();await page.locator('#body').fill('reload@example.com');await settle();state=(await get()).state;
+ ok(state.paused&&state.text==='','페이지 새로고침 후 탭 정지 유지');
+ const badge=await w.evaluate(async()=>{const[t]=await chrome.tabs.query({active:true,currentWindow:true});return chrome.action.getBadgeText({tabId:t.id});});ok(badge==='OFF','새로고침 후 OFF 배지 유지');
+ const other=await ctx.newPage();await other.goto(base);await other.bringToFront();await other.getByRole('textbox',{name:'게시글 내용'}).fill('other@example.com');await settle();state=(await get()).state;
+ ok(!state.paused&&state.matches.length===1,'다른 탭은 정상 검사');
+ await other.close();await page.bringToFront();state=(await get()).state;ok(state.paused,'다른 탭을 닫아도 원래 탭 정지 유지');
+ state=(await cmd('pause',state,{paused:false})).state;ok(!state.paused&&state.matches.length===1,'다시 켜면 현재 본문 검사');
+ await page.frameLocator('iframe').getByRole('textbox',{name:'프레임 게시글'}).fill('resumed@example.com');await settle();state=(await get()).state;
+ ok(!state.paused&&state.matches.length===1,'다시 켜기 기존 프레임 동기화');
+ const storage=await w.evaluate(()=>chrome.storage.session.get(null)),serialized=JSON.stringify(storage);
+ ok(!serialized.includes('example.com')&&!serialized.includes('dummy_key')&&!serialized.includes('indices'),'원문·키·선택값을 storage에 저장하지 않음');
+ await w.evaluate(()=>{chrome.action.openPopup=__realOpen;});
+ return {passed:checks.length,checks};
+}

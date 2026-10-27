@@ -1,0 +1,10 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><title>share-guard · 검증용 입력창</title><link rel="stylesheet" href="style.css"><body><main><h1>share-guard 검증용 입력창</h1><p>실제 개인정보 대신 합성 데이터만 사용합니다.</p>
+<label>일반 한 줄<input id="plain" type="text"></label>
+<label>이메일<input id="email" type="email"></label>
+<label>비밀번호(검사 제외)<input id="password" type="password"></label>
+<label>비활성<textarea id="disabled" disabled></textarea></label>
+<label>읽기 전용<textarea id="readonly" readonly>fixture@example.com</textarea></label>
+<label>기본 본문<textarea id="body"></textarea></label>
+<label>사이트가 수정 거절<textarea id="controlled"></textarea></label>
+<div contenteditable="true" role="textbox" aria-label="서식 본문" id="rich"></div>
+<iframe src="frame.html" title="프레임 입력"></iframe><script src="qa.js"></script></main></body></html>

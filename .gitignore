@@ -1,0 +1,14 @@
+# 제출용 소스만 추적하고 개인 작업 자료와 생성물을 제외합니다.
+.DS_Store
+.env*
+node_modules/
+work/
+recordings/
+output/
+dist/
+*.log
+*.mp4
+*.webm
+*.zip
+playwright*.json
+.playwright*/
